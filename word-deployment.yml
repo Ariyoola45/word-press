@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wordpress-frontend
+  template:
+    metadata:
+      labels:
+        app: wordpress-frontend
+    spec:
+      containers:
+      - name: wordpress-frontend
+        image: wordpress:latest
+        ports:
+        - containerPort: 80
+        
